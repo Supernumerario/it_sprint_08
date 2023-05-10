@@ -21,10 +21,9 @@ export default function Details() {
       }
     }
     getData();
-  }, []);
+  }, [id]);
 
   if (data) {
-
     return (
       <Base pageTitle="Starships details">
         <img src={"https://starwars-visualguide.com/assets/img/starships/" + id + ".jpg"} className="sw-logo" alt="Star Wars logo" />
@@ -46,16 +45,12 @@ export default function Details() {
         <div>Max. Atmosphering Speed: {data.max_atmosphering_speed}</div>
       </Base>
     );
-
   } else {
-
     return (
       <Base pageTitle="Starships details">
         Loading data...
         <span className="loader"></span>
       </Base>
     );
-
   }
-
 }
