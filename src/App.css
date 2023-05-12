@@ -1,7 +1,11 @@
 body {
-  background-color: #222222;
-  color: #cccccc;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
 }
+
+#root { width: 100%; }
 
 ul {
   list-style: none;
@@ -9,22 +13,20 @@ ul {
   padding: 0;
 }
 
-a:link { color: #ccc; text-decoration: none; }
-a:visited { color: #ccc; }
+a:link { color: #ddd; text-decoration: none; }
+a:visited { color: #ddd; }
 a:hover { color: #eee; }
 a:active { color: #fff; }
 
-.sw-logo { width: 80px; }
-
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #ccc;
+  width: 32px;
+  height: 32px;
+  border: 4px solid #ccc;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  }
+}
 
-  @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
