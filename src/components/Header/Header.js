@@ -23,13 +23,6 @@ const LogoImg = styled.img`
   margin: 32px;
 `;
 
-const SignIn = styled.div`
-  grid-column: 10 / span 3;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
 const NavList = styled.ul`
   grid-column: 2 / span 10;
   display: flex;
@@ -63,15 +56,11 @@ export default function Base() {
             <LogoImg src={logo} className="logo-img" alt="Star Wars logo"></LogoImg>
           </Link>
         </Logo>
-        <SignIn>
-          <StyledLink to="/">
-            {/* <img src={signin}></img> */}
-            SIGN IN
-          </StyledLink>
-        </SignIn>
         <NavList>
           <li><StyledLink to="/">HOME</StyledLink></li>
           <li><StyledLink to="/starships">STARSHIPS</StyledLink></li>
+          <li><StyledLink to="/signin">SIGN IN</StyledLink></li>
+          <li><StyledLink to="/login">LOG IN</StyledLink></li>
         </NavList>
       </Header>
       <Separator></Separator>
