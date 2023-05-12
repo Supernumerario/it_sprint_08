@@ -60,7 +60,7 @@ const StarshipInfo = styled.div`
 
 const InfoEntry = styled.div`
   grid-column: span 3;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `;
 
 const InfoTag = styled.div`
