@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from "styled-components";
 import Pilots from "../components/Pilots/Pilots";
+import Movies from "../components/Movies/Movies";
 
 
 
@@ -170,6 +171,7 @@ export default function Details() {
             </StarshipInfo>
           </StarshipInfoContainer>
           <Pilots pilotsParams={data.pilots} />
+          <Movies moviesParams={data.films} />
         </Main>
       </>
     );

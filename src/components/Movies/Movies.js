@@ -5,17 +5,17 @@ import styled from "styled-components";
 
 
 // STYLED COMPONENTS
-const PilotsTitle = styled.h2`
+const MoviesTitle = styled.h2`
 	grid-column: 1 / span 12;
 	padding: 0 16px;
 `;
 
-const PilotContainer = styled.div`
+const MovieContainer = styled.div`
 	grid-column: span 2;
 	padding: 16px;
 `;
 
-const PilotContent = styled.div`
+const MovieContent = styled.div`
 	background-color: #1a1a1a;
 	border-radius: 8px;
 `;
@@ -24,7 +24,7 @@ const ImgContainer = styled.div`
   height: 160px;
 `;
 
-const PilotImg = styled.img`
+const MovieImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -33,36 +33,36 @@ const PilotImg = styled.img`
   border-top-right-radius: 8px;
 `;
 
-const PilotData = styled.div`
+const MovieData = styled.div`
 	padding: 16px;
 	min-height: 80px;
 `;
 
-const PilotDataTag = styled.div`
+const MovieDataTag = styled.div`
 	font-size: 0.8em;
 	text-transform: uppercase;
 	color: #aaa;
 `;
 
-const PilotDataContent = styled.div`
+const MovieDataContent = styled.div`
 	font-weight: 700;
 `;
 
 
 
 // DETAILS COMPONENT
-export default function Pilots( {pilotsParams} ) {
+export default function Movies( {moviesParams} ) {
 
-	const [ pilotsData, setPilotsData ] = useState([]);
+	const [ moviesData, setmoviesData ] = useState([]);
   
 	useEffect(() => {
 
-		if (pilotsParams.length !== 0) {
+		if (moviesParams.length !== 0) {
 			async function getData() {
-				const newPilots = pilotsParams.map ( async pilot => {
+				const newMovies = moviesParams.map ( async movie => {
 					try {
-						const response = await axios.get(pilot);
-						const explodedUrl = pilot.split('/');
+						const response = await axios.get(movie);
+						const explodedUrl = movie.split('/');
 						response.data.id = explodedUrl[5];
 						return response.data;
 					} catch (error) {
@@ -70,13 +70,13 @@ export default function Pilots( {pilotsParams} ) {
 						console.log(error);
 					}
 				});
-				const results = await Promise.all(newPilots);
-				setPilotsData(results);
+				const results = await Promise.all(newMovies);
+				setmoviesData(results);
 			}
 			getData();
 		}
 
-	}, [pilotsParams]);
+	}, [moviesParams]);
 
   function imgError (element) {
     element.target.src = "https://t3.ftcdn.net/jpg/02/81/85/38/360_F_281853832_y7KgelFJDp5kHQdvATktCUb6NMwkHUN6.jpg";
@@ -84,27 +84,27 @@ export default function Pilots( {pilotsParams} ) {
 
 
 
-	if (pilotsData.length !== 0) {
+	if (moviesData.length !== 0) {
 		return (
 			<>
-				<PilotsTitle>Pilots</PilotsTitle>
-				{pilotsData.map(pilot => {
+				<MoviesTitle>Movies</MoviesTitle>
+				{moviesData.map(movie => {
 					return (
-						<PilotContainer key={pilot.id}>
-							<PilotContent>
+						<MovieContainer key={movie.id}>
+							<MovieContent>
 								<ImgContainer>
-									<PilotImg
-										src={"https://starwars-visualguide.com/assets/img/characters/" + pilot.id + ".jpg"}
-										alt={pilot.name}
+									<MovieImg
+										src={"https://starwars-visualguide.com/assets/img/films/" + movie.id + ".jpg"}
+										alt={movie.title}
 										onError={ element => imgError(element) }
 									/>
 								</ImgContainer>
-								<PilotData>
-									<PilotDataTag>NAME</PilotDataTag>
-									<PilotDataContent>{pilot.name}</PilotDataContent>
-								</PilotData>
-							</PilotContent>
-						</PilotContainer>
+								<MovieData>
+									<MovieDataTag>NAME</MovieDataTag>
+									<MovieDataContent>{movie.title}</MovieDataContent>
+								</MovieData>
+							</MovieContent>
+						</MovieContainer>
 					);
 				})}
 			</>
