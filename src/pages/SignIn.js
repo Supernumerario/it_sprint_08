@@ -135,7 +135,7 @@ export default function SignIn() {
 						<label htmlFor="form-offers">Yes! I would like to receive by email special offers and updates about Lucasfilm Ltd. and other products and services from The Walt Disney Family of Companies.</label>
 					</div>
 					<p>By creating an account, you agree to our Terms of Use, and acknowledge that you have read our Privacy Policy, Cookies Policy and UK & EU Privacy Rights.</p>
-					<Submit type="submit"></Submit>
+					<Submit type="submit" value="CREATE ACCOUNT"></Submit>
 				</SignInForm>
 			</Main>
 		</>

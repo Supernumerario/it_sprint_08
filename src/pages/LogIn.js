@@ -55,10 +55,23 @@ const Submit = styled.input`
 	&:hover { cursor: pointer; background-color: #f9d41a; }
 `
 
+const LogOut = styled.input`
+	min-width: 140px;
+	height: 40px;
+	margin: 24px 0 80px 24px;
+	border-radius: 32px;
+	border: 1px solid #ccc;
+	font-weight: 700;
+	color: #ccc;
+	background-color: transparent;
+	text-transform: uppercase;
+	&:hover { cursor: pointer; color: white; }
+`
+
 
 
 // SIGNIN COMPONENT
-export default function LogIn() {
+export default function LogIn(props) {
 
 	function local(item) { return window.localStorage.getItem(item); }
 	
@@ -76,6 +89,13 @@ export default function LogIn() {
 					console.error("Form data doesn't match with localstore data. User is not logged in.");
 				}
 		console.log(event);
+		props.setAuth(true);
+	}
+
+	function logOut(event) {
+		event.preventDefault();
+		props.setAuth(false);
+		console.log("User is logged out.");
 	}
 
 	return (
@@ -97,6 +117,7 @@ export default function LogIn() {
 						<Input type="password" id="form-password" name="password"></Input>
 					</div>
 					<Submit type="submit" value="LOG IN"></Submit>
+					<LogOut type="submit" value="LOG OUT" onClick={logOut}></LogOut>
 				</SignInForm>
 			</Main>
 		</>
