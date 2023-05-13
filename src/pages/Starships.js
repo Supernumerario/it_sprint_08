@@ -51,6 +51,7 @@ export default function Starships() {
   const [ data, setData ] = useState();
   const [ loading, setLoading ] = useState(true);
   const [ currentPage, setCurrentPage ] = useState(0);
+  // eslint-disable-next-line
   const [ totalApiPages, setTotalApiPages ] = useState(1);
 
 
@@ -75,7 +76,7 @@ export default function Starships() {
 
   useEffect(() => {
     // Avoid running on the first component render and after reaching the last page
-    if (currentPage > 0 && currentPage <= totalApiPages ) {
+    if (currentPage > 0 && currentPage <= 4 ) {
       async function apiCall () {
         try {
           const response = await axios.get(`https://swapi.dev/api/starships/?page=${currentPage}`);

@@ -88,7 +88,6 @@ export default function LogIn(props) {
 				} else {
 					console.error("Form data doesn't match with localstore data. User is not logged in.");
 				}
-		console.log(event);
 		props.setAuth(true);
 	}
 

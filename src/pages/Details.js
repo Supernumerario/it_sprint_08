@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import styled from "styled-components";
+import Pilots from "../components/Pilots/Pilots";
 
 
 
@@ -10,7 +11,7 @@ import styled from "styled-components";
 const Main = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  margin: 0 auto;
+  margin: 0 auto 64px;
   max-width: 1340px;
 `;
 
@@ -30,7 +31,7 @@ const LoaderContainer = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  grid-column: 1 / span 6;
+  grid-column: span 6;
   height: 400px;
   padding: 16px;
 `;
@@ -47,7 +48,6 @@ const StarshipImg = styled.img`
 const StarshipInfoContainer = styled.div`
   grid-column: span 6;
   padding: 16px;
-  margin-bottom: 64px;
 `;
 
 const StarshipInfo = styled.div`
@@ -74,8 +74,6 @@ const InfoContent = styled.div`
   grid-column: span 3;
   font-weight: 700;
 `;
-
-
 
 
 
@@ -171,6 +169,7 @@ export default function Details() {
               </InfoEntry>
             </StarshipInfo>
           </StarshipInfoContainer>
+          <Pilots pilotsParams={data.pilots} />
         </Main>
       </>
     );
